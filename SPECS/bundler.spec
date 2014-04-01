@@ -56,6 +56,6 @@ rm -rf $rpm_build_root
 %{gemdir}/specifications/%{gemname}-%{version}.gemspec
 
 %changelog
-* Tue Apr 01 2014 Haani Niyaz <haani.niyaz@gmail.com> - 1.6.0-1
+* Tue Apr 01 2014 Guy Gershoni <guy@conchus.com> - 1.6.0-1
 - Initial package
 
