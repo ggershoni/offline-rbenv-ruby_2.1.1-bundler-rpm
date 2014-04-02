@@ -41,19 +41,24 @@ mkdir -p $RPM_BUILD_ROOT/%{_bindir}
 cp -pa .%{_bindir}/* $RPM_BUILD_ROOT/%{_bindir}/
 
 find $RPM_BUILD_ROOT/%{geminstdir}/bin -type f | xargs chmod a+x
-
+rm -rf %{geminstdir}/.*
 %clean
 rm -rf $rpm_build_root
 
 
 %files
-%dir %{geminstdir}
-%{geminstdir}
 %{_bindir}/bundle
 %{_bindir}/bundler
-%{gemdir}/doc
-%exclude %{gemdir}/cache/%{gemname}-%{version}.gem
-%{gemdir}/specifications/%{gemname}-%{version}.gemspec
+%dir %{gemdir}/build_info
+%{gemdir}/cache/bundler-1.6.0.gem
+%dir %{gemdir}/doc/bundler-1.6.0
+%{gemdir}/doc/bundler-1.6.0/*
+%{gemdir}/extensions
+%dir %{geminstdir}
+%{geminstdir}/*
+%{geminstdir}/.*
+
+%{gemdir}/specifications/bundler-1.6.0.gemspec
 
 %changelog
 * Tue Apr 01 2014 Guy Gershoni <guy@conchus.com> - 1.6.0-1
